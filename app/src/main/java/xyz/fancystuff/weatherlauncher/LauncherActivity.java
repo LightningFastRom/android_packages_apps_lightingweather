@@ -7,13 +7,11 @@ import android.os.Bundle
 import android.widget.Toast
 
 class LauncherActivity : Activity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try {
-            intent.component = ComponentName(
-                    "com.google.android.googlequicksearchbox",
-                    "com.google.android.apps.gsa.velour.DynamicActivityTrampoline")
+			Intent intent = new Intent(); 
+            intent.setClassName("com.google.android.googlequicksearchbox", "com.google.android.apps.gsa.velour.DynamicActivityTrampoline")
             intent.data = Uri.parse("dynact://velour/weather/ProxyActivity")
             startActivity(intent)
         }
