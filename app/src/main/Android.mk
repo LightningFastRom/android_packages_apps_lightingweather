@@ -1,4 +1,4 @@
-# Copyright (C) 2010 Google Inc.
+# Copyright (C) 2017 The LightFastRom  Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,20 +18,15 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := $(call all-java-files-under, src/main/java)
+LOCAL_SRC_FILES := $(call all-java-files-under, java)
 
-LOCAL_PROGUARD_FLAG_FILES := proguard.cfg
-
-LOCAL_PROTOC_OPTIMIZE_TYPE := nano
-LOCAL_PROTOC_FLAGS := --proto_path=$(LOCAL_PATH)/
-
-LOCAL_RESOURCE_DIR := \
-    $(LOCAL_PATH)/app/src/main/res
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
 
 LOCAL_PACKAGE_NAME := LightningWeather
-
-LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/AndroidManifest.xml
-
-LOCAL_JACK_COVERAGE_INCLUDE_FILTER := org.lineageos.yahooweatherprovider.*
+LOCAL_PRIVILEGED_MODULE := false
+#LOCAL_PROTOC_OPTIMIZE_TYPE := nano
+#LOCAL_PROGUARD_FLAG_FILES := $(LOCAL_PATH)/../../proguard-rules.pro
 
 include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
