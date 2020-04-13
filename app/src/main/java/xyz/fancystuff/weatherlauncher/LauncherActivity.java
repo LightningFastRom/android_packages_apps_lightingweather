@@ -1,23 +1,22 @@
-package xyz.fancystuff.weatherlauncher
+package xyz.fancystuff.weatherlauncher;
 
-import android.app.Activity
-import android.content.ComponentName
-import android.net.Uri
-import android.os.Bundle
-import android.widget.Toast
+import android.app.Activity;
+import android.content.Intent;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 
-class LauncherActivity : Activity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        try {
-			Intent intent = new Intent(); 
-            intent.setClassName("com.google.android.googlequicksearchbox", "com.google.android.apps.gsa.velour.DynamicActivityTrampoline")
-            intent.data = Uri.parse("dynact://velour/weather/ProxyActivity")
-            startActivity(intent)
-        }
-        catch (e: Exception) {
-            Toast.makeText(this, getString(R.string.no_google_weather), Toast.LENGTH_LONG).show()
-        }
-        finish()
+/**
+ *
+ */
+class LauncherActivity extends Activity {
+     protected void onCreate(Bundle savedInstanceState) {
+        onCreate(savedInstanceState);
+        Intent intent = new Intent();
+        Context mContext = this.getApplicationContext();
+        intent.setClassName("com.google.android.googlequicksearchbox", "com.google.android.apps.gsa.velour.DynamicActivityTrampoline");
+        intent.setData(Uri.parse("dynact://velour/weather/ProxyActivity"));
+         mContext.startActivity(intent);
+         this.finish();
     }
 }
