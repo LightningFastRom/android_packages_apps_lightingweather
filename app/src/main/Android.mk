@@ -24,8 +24,10 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
 
 LOCAL_PACKAGE_NAME := LightningWeather
 LOCAL_PRIVILEGED_MODULE := false
+LOCAL_SDK_VERSION := current
 #LOCAL_PROTOC_OPTIMIZE_TYPE := nano
 #LOCAL_PROGUARD_FLAG_FILES := $(LOCAL_PATH)/../../proguard-rules.pro
+
 
 include $(BUILD_PACKAGE)
 
