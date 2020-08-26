@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import android.R.*
 
 class LauncherActivity : Activity() {
 
